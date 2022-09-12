@@ -10,21 +10,21 @@ export const StateContext = ({ children }) => {
   const [totalQuantities, setTotalQuantities] = useState(0);
   const [qty, setQty] = useState(1);
 
-  useEffect(() => {
-    const newTotalQuantities = cartItems.reduce(
-      (totalQty, cartItem) => totalQty + cartItem.quantity,
-      0
-    );
-    setTotalQuantities(newTotalQuantities);
-  }, [cartItems]);
+  //   useEffect(() => {
+  //     const newTotalQuantities = cartItems.reduce(
+  //       (totalQty, cartItem) => totalQty + cartItem.quantity,
+  //       0
+  //     );
+  //     setTotalQuantities(newTotalQuantities);
+  //   }, [cartItems]);
 
-  useEffect(() => {
-    const newTotalPrice = cartItems.reduce(
-      (totalPrice, cartItem) => totalPrice + cartItem.quantity * cartItem.price,
-      0
-    );
-    setTotalPrice(newTotalPrice);
-  }, [cartItems]);
+  //   useEffect(() => {
+  //     const newTotalPrice = cartItems.reduce(
+  //       (totalPrice, cartItem) => totalPrice + cartItem.quantity * cartItem.price,
+  //       0
+  //     );
+  //     setTotalPrice(newTotalPrice);
+  //   }, [cartItems]);
 
   let foundProduct;
   let index;
@@ -77,39 +77,6 @@ export const StateContext = ({ children }) => {
     setCartItems(newCartItems);
   };
 
-  const addCartItem = (cartItems, productToAdd) => {
-    const existingItem = cartItems.find(
-      (cartItem) => cartItem._id === productToAdd._id
-    );
-
-    if (existingItem) {
-      return cartItems.map((cartItem) =>
-        cartItem._id === productToAdd._id
-          ? { ...cartItem, quantity: cartItem.quantity + 1 }
-          : cartItem
-      );
-    }
-
-    return [...cartItems, { ...productToAdd, quantity: 1 }];
-  };
-
-  const removeCartItem = (cartItems, productToRemove) => {
-    const existingCartItem = cartItems.find(
-      (cartItem) => cartItem._id === productToRemove._id
-    );
-
-    if (existingCartItem.quantity === 1) {
-      return cartItems.filter(
-        (cartItem) => cartItem._id !== productToRemove._id
-      );
-    }
-    return cartItems.map((cartItem) =>
-      cartItem._id === productToRemove._id
-        ? { ...cartItem, quantity: cartItem.quantity - 1 }
-        : cartItem
-    );
-  };
-
   const toggleCartItemQuantity = (id, value) => {
     foundProduct = cartItems.find((item) => item._id === id);
     index = cartItems.findIndex((product) => product._id === id);
@@ -154,8 +121,6 @@ export const StateContext = ({ children }) => {
         setShowCart,
         toggleCartItemQuantity,
         onRemove,
-        addCartItem,
-        removeCartItem,
       }}
     >
       {children}
