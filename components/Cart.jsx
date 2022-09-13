@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import Link from "next/link";
 import {
   AiOutlineMinus,
@@ -14,6 +14,7 @@ import { urlFor } from "../lib/client";
 import getStripe from "../lib/getStripe";
 
 const Cart = () => {
+  let cartItems;
   const cartRef = useRef();
   const {
     decQty,
@@ -21,7 +22,7 @@ const Cart = () => {
     qty,
     totalPrice,
     totalQuantites,
-    cartItems,
+
     setShowCart,
     toggleCartItemQuantity,
     onRemove,

@@ -10,22 +10,6 @@ export const StateContext = ({ children }) => {
   const [totalQuantities, setTotalQuantities] = useState(0);
   const [qty, setQty] = useState(1);
 
-  //   useEffect(() => {
-  //     const newTotalQuantities = cartItems.reduce(
-  //       (totalQty, cartItem) => totalQty + cartItem.quantity,
-  //       0
-  //     );
-  //     setTotalQuantities(newTotalQuantities);
-  //   }, [cartItems]);
-
-  //   useEffect(() => {
-  //     const newTotalPrice = cartItems.reduce(
-  //       (totalPrice, cartItem) => totalPrice + cartItem.quantity * cartItem.price,
-  //       0
-  //     );
-  //     setTotalPrice(newTotalPrice);
-  //   }, [cartItems]);
-
   let foundProduct;
   let index;
 
@@ -121,6 +105,9 @@ export const StateContext = ({ children }) => {
         setShowCart,
         toggleCartItemQuantity,
         onRemove,
+        setCartItems,
+        setTotalPrice,
+        setTotalQuantities,
       }}
     >
       {children}
