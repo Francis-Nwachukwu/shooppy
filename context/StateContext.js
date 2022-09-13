@@ -4,14 +4,34 @@ import { toast } from "react-hot-toast";
 const Context = createContext();
 
 export const StateContext = ({ children }) => {
+  const getLocalStorage = (name) => {
+    if (typeof window !== "undefined") {
+      const storage = localStorage.getItem(name);
+
+      if (storage) return JSON.parse(localStorage.getItem(name));
+
+      if (name === "cartItems") return [];
+
+      return 0;
+    }
+  };
+
   const [showCart, setShowCart] = useState(false);
-  const [cartItems, setCartItems] = useState([]);
-  const [totalPrice, setTotalPrice] = useState(0);
-  const [totalQuantities, setTotalQuantities] = useState(0);
+  const [cartItems, setCartItems] = useState(getLocalStorage("cartItems"));
+  const [totalPrice, setTotalPrice] = useState(getLocalStorage("totalPrice"));
+  const [totalQuantities, setTotalQuantities] = useState(
+    getLocalStorage("totalQuantities")
+  );
   const [qty, setQty] = useState(1);
 
   let foundProduct;
   let index;
+
+  useEffect(() => {
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    localStorage.setItem("totalPrice", JSON.stringify(totalPrice));
+    localStorage.setItem("totalQuantities", JSON.stringify(totalQuantities));
+  }, [cartItems, totalPrice, totalQuantities]);
 
   const incQty = () => {
     setQty((prevQty) => prevQty + 1);
