@@ -2,7 +2,7 @@ html,
 body,
 * {
   padding: 0;
-  margin: 0;
+  margin: 0 3px;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   box-sizing: border-box;
@@ -265,8 +265,10 @@ span.text-red {
   width: 100vw;
   background: rgba(0, 0, 0, 0.5);
   position: fixed;
+  left: 0;
   right: 0;
   top: 0;
+  bottom: 0;
   z-index: 100;
   /* will-change: transform; */
   transition: all 1s ease-in-out;
@@ -311,6 +313,7 @@ span.text-red {
 
 .cart-heading .heading {
   margin-left: 10px;
+  color: black;
 }
 .cart-num-items {
   margin-left: 10px;
@@ -619,7 +622,7 @@ span.text-red {
     right: -6%;
   }
   .footer-banner-container {
-    height: 560px;
+    height: 600px;
     margin-top: 80px;
   }
   .footer-banner-image {
@@ -673,7 +676,8 @@ span.text-red {
     height: 350px;
   }
   .cart-container {
-    width: 415px;
+    /* height: 100vh; */
+    width: 380px;
     padding: 4px;
   }
   .cart-heading {
