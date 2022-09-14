@@ -82,7 +82,11 @@ const ProductDetails = ({ products, product }) => {
             >
               Add to Cart
             </button>
-            <button type="button" className="buy-now" onClick={handleBuyNow}>
+            <button
+              type="button"
+              className="buy-now"
+              onClick={() => handleBuyNow()}
+            >
               Buy Now
             </button>
           </div>
