@@ -676,7 +676,7 @@ span.text-red {
     height: 350px;
   }
   .cart-container {
-    height: 844px;
+    height: 100vh;
     width: 380px;
     padding: 4px;
   }
