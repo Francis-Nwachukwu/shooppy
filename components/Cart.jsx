@@ -49,7 +49,7 @@ const Cart = () => {
   return (
     <div className="cart-wrapper" ref={cartRef}>
       <div className="cart-container">
-        <button
+        {/* <button
           type="button"
           className="cart-heading"
           onClick={() => setShowCart(false)}
@@ -57,11 +57,11 @@ const Cart = () => {
           <AiOutlineLeft />
           <span className="heading">Your Cart</span>
           <span className="cart-num-items">({totalQuantites} items)</span>
-        </button>
+        </button> */}
 
         {cartItems.length < 1 && (
           <div className="empty-cart">
-            <AiOutlineShopping size={150} />
+            <AiOutlineShopping size={60} />
             <h3>Your shopping bag is empty</h3>
             <Link href="/">
               <button
@@ -88,7 +88,7 @@ const Cart = () => {
                     <h5>{item.name}</h5>
                     <h4>${item.price}</h4>
                   </div>
-                  <div className="flex bottom">
+                  <div className="add-minus-btn">
                     <div>
                       <p className="quantity-desc">
                         <span
@@ -122,24 +122,24 @@ const Cart = () => {
               </div>
             ))}
         </div>
-        {cartItems.length >= 1 && (
-          <div className="cart-bottom">
-            <div className="total">
-              <h3>Subtotal:</h3>
-              <h3>${totalPrice}</h3>
-            </div>
-            <div className="btn-container">
-              <button
-                type="button"
-                className="btn"
-                onClick={() => handleCheckout()}
-              >
-                Pay with Stripe
-              </button>
-            </div>
-          </div>
-        )}
       </div>
+      {cartItems.length >= 1 && (
+        <div className="cart-bottom">
+          <div className="total">
+            <h3>Subtotal: </h3>
+            <h3>${totalPrice}</h3>
+          </div>
+          <div className="cart-btn-container">
+            <button
+              type="button"
+              className="cart-btn"
+              onClick={() => handleCheckout()}
+            >
+              Pay with Stripe
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
