@@ -546,8 +546,8 @@ span.text-red {
   border: 1px solid gray;
 }
 .quantity-desc span {
-  font-size: 16px;
-  padding: 6px 12px;
+  font-size: 22px;
+  padding: 0 12px;
   cursor: pointer;
 }
 .quantity-desc .minus {
@@ -556,7 +556,7 @@ span.text-red {
 }
 .quantity-desc .num {
   border-right: 1px solid gray;
-  font-size: 20px;
+  /* font-size: 20px; */
 }
 .quantity-desc .plus {
   color: rgb(49, 168, 49);
